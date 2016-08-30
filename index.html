@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PicQuo</title>
+        <meta charset="utf-8">
+        <link rel="icon" href="favicon.ico">
+        <!--Boostrap's CSS-->
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <!--Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+    </head>
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+        <!--Header section (navigation bar) -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <a class="navbar-brand" href="#"><img src="favicon.ico" ></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#categories">CATEGORIES</a></li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Container for HOME section -->
+        <div class="container" id="home">
+            <h1 id="app-name">PicQuo</h1>
+            <br>
+            <h2 id="page-header">A picture is worth a thousand words</h2>
+            <!--Buttons-->
+            <div class="btn-wrapper">
+                <label class="btn btn-primary" for="my-file-selector">
+                    <input id="my-file-selector" type="file"><span class="glyphicon glyphicon-open">
+                    Upload a picture 
+                </label>
+                <button type="button" class="btn btn-primary" id="randombtn"><span class="glyphicon glyphicon-random">
+                    Random
+                </button>
+                <button type="button" class="btn btn-primary" id="refreshbtn">Try again</button>
+            </div>
+        </div>
+
+        <!--Container for ABOUT section -->
+        <div class="container" id="about">
+            <h3 id="header">ABOUT</h3>
+            <br><br>
+            <p>PicQuo takes in pictures and analyze it to find the perfect quote for your pictures.</p>
+            <p>Find quotes that match your pictures!</p>
+        </div>
+
+        <!--Container for CATERGORIES section -->
+        <div class="container" id="categories">
+            <h3 id="header">CATEGORIES</h3>
+            <br><br>
+            <button type="button" class="cat-btn" id="lovebtn">Love</button>
+            <button type="button" class="cat-btn" id="funnybtn">Funny</button>
+        </div>
+
+
+        <!-- 
+            NB: You generally do not want to publically expose the server structure (eg. ./node_modules/...)
+            will sort that in later bootcamps with task-runners and the like.
+            For now this is just a demonstration.
+            Alternatively can use CDNs for bootstrap/jquery
+        -->
+
+        <!--jQuery Script-->
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <!--Bootstrap Script-->
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!--Custom Script-->
+        <script src="./js/main.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js">        
+        <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+    </body>
+</html>

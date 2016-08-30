@@ -1,0 +1,137 @@
+html { 
+    background:url("background.jpg"); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+body {
+    color: #bdbdbd;
+    font-family: "Courier New", Courier, monospace;
+    background-color: transparent;
+    height: 100%;
+    
+}
+
+h1#app-name {
+    font-size:100px;
+    margin-top: 100px;
+}
+
+#page-header {
+    font-size: 30px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+body .container {
+    padding-top:100px;
+    background-color:rgba(55,55,55,0.5);
+    text-align: center;
+    height: 100%;
+    width:100%;
+}
+
+h3#header{
+    font-size:60px;
+}
+
+#about{
+    font-size:30px;
+    background: rgba(255,255,255,0.5);
+    color: black;
+}
+
+p #about{
+    font-size:20px ;
+}
+
+.btn-wrapper {
+    padding: 20px 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+button#refreshbtn {
+    display:none;
+}
+
+.cat-btn{
+    color: black;
+    display: inline-block;
+    vertical-align: top;
+    height: 100px;
+    width: 100px;
+    font-size:30px;
+    text-align: center;
+    font-weight:bold;
+    
+}
+
+#lovebtn{
+    background:url("love.png");
+    background-size:cover;
+}
+
+#funnybtn{
+    background:url("laughing.png");
+    background-color:white;
+    background-size:cover;
+}
+input#my-file-selector {
+    display:none;
+}
+
+/*--Header section (navigation bar) */
+.navbar {
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
+    background-color: white;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity:0.9;
+}
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand { 
+    color: black !important;
+}
+
+/* On hover, the links will turn white */
+.navbar-nav li a:hover {
+    color: dimgrey !important;
+}
+
+.navbar-nav li a:active{
+    background-color: lightgrey !important;
+}
+
+/* The active link */
+.navbar-nav li.active a {
+    color: black !important;
+    background-color: lightgrey !important;
+}
+
+/* Remove border color from the collapsible button */
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+
+/* Dropdown */
+.open .dropdown-toggle {
+    color: #fff ;
+    background-color: lightgrey !important;
+}
+
+/* Dropdown links */
+.dropdown-menu li a {
+    color: #000 !important;
+}
+
+/* On hover, the dropdown links will turn red */
+.dropdown-menu li a:hover {
+    background-color: lightgrey !important;
+}
