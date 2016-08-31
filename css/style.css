@@ -54,11 +54,14 @@ button#tryAgainbtn {
 }
 
 #editor{
+    background-color:transparent;
     padding-top:0px;
     position: absolute;
+    width:50%;
 }
 
 #edit{
+    background-color:transparent;
     font-size:50px;
     padding-top:200px;
     text-align: center;

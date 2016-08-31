@@ -6,6 +6,7 @@ var tryAgainbtn = $("#tryAgainbtn")[0];
 var randombtn = $("#randombtn")[0];
 var home = $("#home")[0];
 var edit = $("#edit")[0];
+var editorhtml = $("#editor")[0];
 var appname = $("#app-name")[0];
 
 
@@ -358,50 +359,13 @@ function sendTagRequest(file, callback):void {
 //API call to get photo editor
 var PhotoEditorSDK:any;
 var controlsOptions:any;
+
 window.onload = function () {
-            var container = document.getElementById('editor')
-            var editor = new PhotoEditorSDK.UI.ReactUI({
-                container: container,
-                assets: {
-                    baseUrl: 'photoeditor/assets' // <-- This should be the absolute path to your `assets` directory
-                }
-            })
+    var container = editorhtml;
+    var editor = new PhotoEditorSDK.UI.ReactUI({
+        container: container,
+        assets: {
+            baseUrl: 'photoeditor/assets' // <-- This should be the absolute path to your `assets` directory
         }
-
-const editor = new PhotoEditorSDK.UI.NightReact({
-    controlsOptions: {
-        text: {
-        additionalFonts: [
-            {
-            name: 'comicsans',
-            fontFamily: 'Comic Sans MS',
-            fontWeight: 'normal'
-            }
-        ],
-        replaceFonts: false
-        }
-    }
-})
-
-/** function sendQuoteRequest(file, callback):void {
-    $.ajax({
-        url: "https://favqs.com/api/",
-        beforeSend: function (xhrObj) {
-            // Request headers
-            xhrObj.setRequestHeader("Content-Type", "application/json");
-            xhrObj.setRequestHeader("Authorization", "Token token=b045822845282381895618db496667d7");
-        },
-        type: "GET",
-        data:"json",
     })
-        .done(function (data) {
-            alert("SUCCESSS!!!");
-            var tags = data.description;
-            callback(tags);
-        })
-        .fail(function (error) {
-            alert("fail!");
-            pageheader.innerHTML = "Sorry, something went wrong. :( Try again in a bit?";
-            console.log(error.getAllResponseHeaders());
-        });
-}*/
+}
