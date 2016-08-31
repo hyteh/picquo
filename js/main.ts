@@ -82,7 +82,6 @@ animal.push(new Quote("Roger Caras","Dogs are not our whole life, but they make 
 couple.push(new Quote("Anthony J. D'Angelo","Treasure your relationships, not your possessions."));
 couple.push(new Quote("Mahatma Gandhi","Where there is love there is life."));
 couple.push(new Quote("Anais Nin","Age does not protect you from love. But love, to some extent, protects you from age."));
-couple.push(new Quote("John Lennon","Love is the flower you've got to let grow."));
 
 food.push(new Quote("Rodney Dangerfield","I'm at the age where food has taken the place of sex in my life. In fact, I've just had a mirror put over my kitchen table."));
 food.push(new Quote("Katharine McPhee","I have an amazing relationship with food."));
@@ -163,9 +162,10 @@ imgSelector.addEventListener("change", function () {
     processImage(function(file){ 
         sendTagRequest(file,function(tags){//Get tags based on image (Pic analyzing API)
             var allTags = tags.tags; 
-            getQuoteArray(allTags,function(quote){
-                refreshQuote = quote;
-                pageheader.innerHTML = getQuote(quote);
+            console.log(allTags);
+            getQuoteArray(allTags,function(quoteArray){
+                refreshQuote = quoteArray;
+                pageheader.innerHTML = getQuote(quoteArray);
             });
             changeUI(file);
         });
@@ -187,9 +187,10 @@ function processImage(callback):void{
             pageheader.innerHTML = "Please upload an image file (jpg or png).";
         }
         else {
-            //if file is valid photo it sends the file reference back up
+            //if file is valid picture it sends the file reference back up
             callback(file);
         }
+        //Set background as the uploaded picture
         home.style.backgroundImage = "url("+reader.result+")";
         home.style.backgroundSize= "auto";
         appname.style.display = "none";
@@ -307,19 +308,19 @@ function getQuote(quoteArray:any):string{
     }
 }
 
-//Return random quote based on tags
+//Return quote based on tags
 tryAgainbtn.addEventListener("click", function () {
-    pageheader.innerHTML = getQuote(quotesList);
+    pageheader.innerHTML = getQuote(refreshQuote);
 });
 
 //Return random quote
 randombtn.addEventListener("click",function(){
-    pageheader.innerHTML = getQuote(refreshQuote);
+    pageheader.innerHTML = getQuote(quotesList);
 });
 
 // Manipulate the DOM
 function changeUI(file) {
-    pageheader.style.fontSize = "40px";
+    pageheader.style.fontSize = "50px";
     tryAgainbtn.style.display = "inline"; //Display try again button
 }
 
