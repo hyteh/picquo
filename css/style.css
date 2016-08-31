@@ -115,3 +115,12 @@ input#my-file-selector {
 .dropdown-menu li a:hover {
     background-color: lightgrey !important;
 }
+
+
+
+/*Icons*/
+.social-share ul li {
+	display: inline;
+	margin: 0 5px;
+    font-size:50px
+}

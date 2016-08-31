@@ -1,13 +1,18 @@
 // Get jquery objects from DOM
 var pageheader = $("#page-header")[0];
-var pagecontainer = $("#page-container")[0];
+var appname = $("#app-name")[0];
 var imgSelector = $("#my-file-selector")[0];
 var tryAgainbtn = $("#tryAgainbtn")[0];
 var randombtn = $("#randombtn")[0];
 var home = $("#home")[0];
 var edit = $("#edit")[0];
-var editorhtml = $("#editor")[0];
-var appname = $("#app-name")[0];
+var editor = $("#editor")[0];
+//Initialize Pretty Social jQuery Plugin
+$('.prettySocial').prettySocial();
+//Initialize tooltip
+(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
 //Initialize quotes
 var Quote = (function () {
     function Quote(name, body) {
@@ -131,17 +136,25 @@ quotesList.push(dark);
 var refreshQuote = [];
 // Register event listeners
 imgSelector.addEventListener("change", function () {
-    pageheader.innerHTML = "Please wait a moment..."; /** ---TODO: Add jquery loading plugin? */
+    pageheader.innerHTML = "Please wait for a moment...";
+    $.LoadingOverlay("show"); //Start jQuery loading plugin
     processImage(function (file) {
         sendTagRequest(file, function (tags) {
+            $.LoadingOverlay("hide"); //Stop jQuery loading plugin
             var allTags = tags.tags;
             console.log(allTags);
             getQuoteArray(allTags, function (quoteArray) {
-                refreshQuote = quoteArray;
+                refreshQuote = quoteArray; //To get array of quotes to return when user clicks Try Again
                 changeUI(quoteArray);
             });
         });
     });
+});
+tryAgainbtn.addEventListener("click", function () {
+    changeUI(refreshQuote);
+});
+randombtn.addEventListener("click", function () {
+    changeUI(quotesList);
 });
 //Check to see if file is valid
 function processImage(callback) {
@@ -158,10 +171,10 @@ function processImage(callback) {
             pageheader.innerHTML = "Please upload an image file (jpg or png).";
         }
         else {
-            //if file is valid picture it sends the file reference back up
+            //if file is valid image it sends the file reference back up
             callback(file);
         }
-        //Set background as the uploaded picture
+        //Set background as the uploaded image on edit container
         edit.style.backgroundImage = "url(" + reader.result + ")";
         edit.style.backgroundSize = "contain";
     };
@@ -240,7 +253,7 @@ function getQuoteArray(tags, callback) {
     }
     callback(quotes);
 }
-//Get quote and author string 
+//Get quote and author to display 
 function getQuote(quoteArray) {
     if (quoteArray.length == 0) {
         var quoteCategory = quotesList[Math.floor(Math.random() * quoteArray.length)];
@@ -253,14 +266,6 @@ function getQuote(quoteArray) {
         return ('"' + displayQuote.quote + ' ' + '" -' + displayQuote.author);
     }
 }
-//Return another quote based on tags
-tryAgainbtn.addEventListener("click", function () {
-    changeUI(refreshQuote);
-});
-//Return random quote
-randombtn.addEventListener("click", function () {
-    changeUI(quotesList);
-});
 function postQuote(quote) {
     var postQuote = getQuote(quote);
     pageheader.innerHTML = postQuote;
@@ -273,7 +278,7 @@ function changeUI(quoteArray) {
     pageheader.style.fontSize = "46px";
     tryAgainbtn.style.display = "inline"; //Display try again button
 }
-//API call to get picture tags
+//API call to get image tags
 function sendTagRequest(file, callback) {
     $.ajax({
         url: "https://api.projectoxford.ai/vision/v1.0/describe",
@@ -300,11 +305,11 @@ function sendTagRequest(file, callback) {
 var PhotoEditorSDK;
 var controlsOptions;
 window.onload = function () {
-    var container = editorhtml;
-    var editor = new PhotoEditorSDK.UI.ReactUI({
+    var container = editor;
+    var editir = new PhotoEditorSDK.UI.ReactUI({
         container: container,
         assets: {
-            baseUrl: 'photoeditor/assets' // <-- This should be the absolute path to your `assets` directory
+            baseUrl: 'photoeditor/assets'
         }
     });
 };

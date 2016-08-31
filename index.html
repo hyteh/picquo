@@ -15,13 +15,12 @@
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <!--Google Fonts API-->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Indie+Flower&effect=vintage|outline">
-        <!--Photo editor API-->
-        <script src="photoeditor/js/PhotoEditorSDK.min.js"></script>
-        <script src="photoeditor/js/PhotoEditorReactUI.min.js"></script>
-        <link rel="stylesheet" href="photoeditor/css/PhotoEditorReactUI.min.css" />
-
-      
+        <!--Photo editor's CSS-->
+        <link rel="stylesheet" href="./photoeditor/css/PhotoEditorReactUI.min.css" />
+        <!-- Pretty social's CSS-->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     </head>
+
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
         <!--Header section (navigation bar) -->
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -49,6 +48,7 @@
             <h1 id="app-name" class ="font-effect-vintage">PicQuo</h1>
             <br>
             <h2 id="page-header" class ="font-effect-outline">A picture is worth a thousand words</h2>
+            
             <!--Buttons-->
             <div class="btn-wrapper">
                 <label class="btn btn-default" for="my-file-selector">
@@ -61,7 +61,20 @@
                 <button id="tryAgainbtn" type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh">
                     Try again</button>
             </div>
-            <div class="fb-share-button" data-href="http://picquo.azurewebsites.net/" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpicquo.azurewebsites.net%2F&amp;src=sdkpreparse">Share</a></div>
+
+            <!--Social Icons-->
+            <div class="social-share">
+            <ul>
+            <li id="twittericon"><a href="#" data-type="twitter" data-toggle="tooltip" title="Share PicQuo with your friends!" data-url="http://picquo.azurewebsites.net/" 
+            data-description="Awesome Quotes for Awesome Pictures!" data-via="jqueryscript" class="prettySocial fa fa-twitter"></a></li>
+            <li id="fbicon"><a href="#" data-type="facebook" data-toggle="tooltip" title="Share PicQuo with your friends!" data-url="http://picquo.azurewebsites.net/" 
+            data-title="PicQuo" data-description="Awesome Quotes for Awesome Pictures!" data-media="prettySocial.png" class="prettySocial fa fa-facebook"></a></li>
+            <li id="googleicon"><a href="#" data-type="googleplus" data-toggle="tooltip" title="Share PicQuo with your friends!" data-url="http://picquo.azurewebsites.net/" 
+            data-description="Awesome Quotes for Awesome Pictures!" class="prettySocial fa fa-google-plus"></a></li>
+            <li id="pinteresticon"><a href="#" data-type="pinterest" data-toggle="tooltip" title="Share PicQuo with your friends!" data-url="http://picquo.azurewebsites.net/" 
+            data-description="Awesome Quotes for Awesome Pictures!" data-media="prettySocial.png" class="prettySocial fa fa-pinterest"></a></li>
+            </ul>
+            </div>
         </div>
 
         <!--Container for ABOUT section -->
@@ -77,22 +90,19 @@
         <div id="edit" class="container font-effect-outline"></div>
             
 
-        <!--JQUERY SCRIPTS-->
+        <!--JAVASCRIPTS-->
         <!--jQuery Script-->
         <script src="./node_modules/jquery/dist/jquery.min.js"></script>
         <!--Bootstrap Script-->
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!--Loading Overlay jQuery Plugin Script-->
+        <script src="./loadingOverlayPlugin/src/loadingoverlay.min.js"></script>
+        <!--Pretty Social jQuery Plugin Script-->
+        <script src="./prettySocialPlugin/jquery.prettySocial.min.js"></script>
+        <!--Photo Editor Script-->
+        <script src="./photoeditor/js/PhotoEditorSDK.min.js"></script>
+        <script src="./photoeditor/js/PhotoEditorReactUI.min.js"></script>
         <!--Custom Script-->
-        <script src="./js/main.js"></script>  
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-        </script>
+        <script src="./js/main.js"></script>
     </body>
 </html>
