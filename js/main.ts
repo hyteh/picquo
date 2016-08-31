@@ -5,6 +5,7 @@ var imgSelector: HTMLInputElement = <HTMLInputElement> $("#my-file-selector")[0]
 var tryAgainbtn = $("#tryAgainbtn")[0];
 var randombtn = $("#randombtn")[0];
 var home = $("#home")[0];
+var edit = $("#edit")[0];
 var appname = $("#app-name")[0];
 
 
@@ -165,9 +166,8 @@ imgSelector.addEventListener("change", function () {
             console.log(allTags);
             getQuoteArray(allTags,function(quoteArray){
                 refreshQuote = quoteArray;
-                pageheader.innerHTML = getQuote(quoteArray);
+                changeUI(quoteArray);
             });
-            changeUI(file);
         });
     });
 });
@@ -191,10 +191,9 @@ function processImage(callback):void{
             callback(file);
         }
         //Set background as the uploaded picture
-        home.style.backgroundImage = "url("+reader.result+")";
-        home.style.backgroundSize= "auto";
-        appname.style.display = "none";
-        pageheader.style.paddingTop = "200px";
+        edit.style.backgroundImage = "url("+reader.result+")";
+        edit.style.backgroundSize= "contain";
+
     };
 }
 
@@ -308,19 +307,26 @@ function getQuote(quoteArray:any):string{
     }
 }
 
-//Return quote based on tags
+//Return another quote based on tags
 tryAgainbtn.addEventListener("click", function () {
-    pageheader.innerHTML = getQuote(refreshQuote);
+    changeUI(refreshQuote);
 });
 
 //Return random quote
 randombtn.addEventListener("click",function(){
-    pageheader.innerHTML = getQuote(quotesList);
+    changeUI(quotesList);
 });
 
+function postQuote(quote):void{
+    var postQuote :string = getQuote(quote);
+    pageheader.innerHTML = postQuote;
+    edit.innerHTML = postQuote;
+    window.location.hash = '#edit';
+}
 // Manipulate the DOM
-function changeUI(file) {
-    pageheader.style.fontSize = "50px";
+function changeUI(quoteArray) {
+    postQuote(quoteArray);
+    pageheader.style.fontSize = "46px";
     tryAgainbtn.style.display = "inline"; //Display try again button
 }
 
@@ -347,6 +353,35 @@ function sendTagRequest(file, callback):void {
             console.log(error.getAllResponseHeaders());
         });
 }
+
+
+//API call to get photo editor
+var PhotoEditorSDK:any;
+var controlsOptions:any;
+window.onload = function () {
+            var container = document.getElementById('editor')
+            var editor = new PhotoEditorSDK.UI.ReactUI({
+                container: container,
+                assets: {
+                    baseUrl: 'photoeditor/assets' // <-- This should be the absolute path to your `assets` directory
+                }
+            })
+        }
+
+const editor = new PhotoEditorSDK.UI.NightReact({
+    controlsOptions: {
+        text: {
+        additionalFonts: [
+            {
+            name: 'comicsans',
+            fontFamily: 'Comic Sans MS',
+            fontWeight: 'normal'
+            }
+        ],
+        replaceFonts: false
+        }
+    }
+})
 
 /** function sendQuoteRequest(file, callback):void {
     $.ajax({

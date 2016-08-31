@@ -18,7 +18,7 @@ body {
 
 h1#app-name {
     font-size:200px;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 #page-header {
@@ -27,11 +27,11 @@ h1#app-name {
 }
 
 body .container {
-    padding-top:100px;
     background-color:rgba(55,55,55,0.5);
     text-align: center;
     height: 100%;
     width:100%;
+    padding-top:80px;
 }
 
 h3#header{
@@ -44,48 +44,37 @@ h3#header{
     background: rgba(255,255,255,0.5);
     color: black;
 }
+
 .btn-wrapper {
-    padding: 20px 0;
-    font-family: Arial, Helvetica, sans-serif
+    padding: 20px;
 }
 
 button#tryAgainbtn {
     display:none;
 }
 
-.cat-btn{
-    color: black;
-    display: inline-block;
-    vertical-align: top;
-    height: 100px;
-    width: 100px;
-    font-size:30px;
+#editor{
+    padding-top:0px;
+    position: absolute;
+}
+
+#edit{
+    font-size:50px;
+    padding-top:200px;
     text-align: center;
-    font-weight:bold;
-    
 }
 
-#lovebtn{
-    background:url("love.png");
-    background-size:cover;
-}
-
-#funnybtn{
-    background:url("laughing.png");
-    background-color:white;
-    background-size:cover;
-}
 input#my-file-selector {
     display:none;
 }
 
 /*--Header section (navigation bar) */
 .navbar {
-    font-family: Montserrat, sans-serif;
+    font-family: "Indie Flower", serif;
     margin-bottom: 0;
     background-color: dimgrey;
     border: 0;
-    font-size: 11px !important;
+    font-size: 16px !important;
     letter-spacing: 4px;
     opacity:0.9;
 }
