@@ -3,12 +3,15 @@
     <head>
         <title>PicQuo</title>
         <meta charset="utf-8">
-        <link rel="icon" href="favicon.ico">
+        <link rel="icon" href="logo.png">
         <!--Boostrap's CSS-->
-        <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <!--Google Fonts API-->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Indie+Flower&effect=vintage">
         <!--Custom CSS-->
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+      
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
         <!--Header section (navigation bar) -->
@@ -20,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span> 
                 </button>
-                <a class="navbar-brand" href="#"><img src="favicon.ico" ></a>
+                <a class="navbar-brand" href="#home"><img src="logoname.png"" style="width:160px;height:26px;"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -34,19 +37,19 @@
 
         <!--Container for HOME section -->
         <div class="container" id="home">
-            <h1 id="app-name">PicQuo</h1>
+            <h1 class ="font-effect-vintage" id="app-name">PicQuo</h1>
             <br>
             <h2 id="page-header">A picture is worth a thousand words</h2>
             <!--Buttons-->
             <div class="btn-wrapper">
-                <label class="btn btn-primary" for="my-file-selector">
+                <label class="btn btn-default" for="my-file-selector">
                     <input id="my-file-selector" type="file"><span class="glyphicon glyphicon-open">
                     Upload a picture 
                 </label>
-                <button type="button" class="btn btn-primary" id="randombtn"><span class="glyphicon glyphicon-random">
+                <button type="button" class="btn btn-default" id="randombtn"><span class="glyphicon glyphicon-random">
                     Random
                 </button>
-                <button type="button" class="btn btn-primary" id="refreshbtn">Try again</button>
+                <button type="button" class="btn btn-default" id="refreshbtn">Try again</button>
             </div>
         </div>
 
@@ -60,8 +63,7 @@
 
         <!--Container for CATERGORIES section -->
         <div class="container" id="categories">
-            <h3 id="header">CATEGORIES</h3>
-            <br><br>
+            <h3 id="header">CATEGORIES</h3><br><br><br><br>
             <button type="button" class="cat-btn" id="lovebtn">Love</button>
             <button type="button" class="cat-btn" id="funnybtn">Funny</button>
         </div>

@@ -10,21 +10,20 @@ html {
 
 body {
     color: #bdbdbd;
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Indie Flower", serif;
     background-color: transparent;
     height: 100%;
     
 }
 
 h1#app-name {
-    font-size:100px;
+    font-size:200px;
     margin-top: 100px;
 }
 
 #page-header {
-    font-size: 30px;
-    padding-top:20px;
-    padding-bottom:20px;
+    font-size: 50px;
+    padding-bottom:60px;
 }
 
 body .container {
@@ -36,19 +35,15 @@ body .container {
 }
 
 h3#header{
-    font-size:60px;
+    padding-top:20px;
+    font-size:80px;
 }
 
 #about{
-    font-size:30px;
+    font-size:46px;
     background: rgba(255,255,255,0.5);
     color: black;
 }
-
-p #about{
-    font-size:20px ;
-}
-
 .btn-wrapper {
     padding: 20px 0;
     font-family: Arial, Helvetica, sans-serif
@@ -88,7 +83,7 @@ input#my-file-selector {
 .navbar {
     font-family: Montserrat, sans-serif;
     margin-bottom: 0;
-    background-color: white;
+    background-color: dimgrey;
     border: 0;
     font-size: 11px !important;
     letter-spacing: 4px;
