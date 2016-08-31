@@ -7,7 +7,7 @@
         <!--Boostrap's CSS-->
         <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
         <!--Google Fonts API-->
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Indie+Flower&effect=vintage">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Indie+Flower&effect=vintage|outline">
         <!--Custom CSS-->
         <link rel="stylesheet" type="text/css" href="./css/style.css">
 
@@ -27,7 +27,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#home" id="homenav">HOME</a></li>
                     <li><a href="#about">ABOUT</a></li>
                     <li><a href="#categories">CATEGORIES</a></li>
                 </ul>
@@ -39,7 +39,7 @@
         <div class="container" id="home">
             <h1 class ="font-effect-vintage" id="app-name">PicQuo</h1>
             <br>
-            <h2 id="page-header">A picture is worth a thousand words</h2>
+            <h2 id="page-header" class ="font-effect-outline">A picture is worth a thousand words</h2>
             <!--Buttons-->
             <div class="btn-wrapper">
                 <label class="btn btn-default" for="my-file-selector">
@@ -49,7 +49,8 @@
                 <button type="button" class="btn btn-default" id="randombtn"><span class="glyphicon glyphicon-random">
                     Random
                 </button>
-                <button type="button" class="btn btn-default" id="refreshbtn">Try again</button>
+                <button type="button" class="btn btn-default" id="tryAgainbtn"><span class="glyphicon glyphicon-refresh">
+                    Try again</button>
             </div>
         </div>
 
@@ -67,7 +68,6 @@
             <button type="button" class="cat-btn" id="lovebtn">Love</button>
             <button type="button" class="cat-btn" id="funnybtn">Funny</button>
         </div>
-
 
         <!-- 
             NB: You generally do not want to publically expose the server structure (eg. ./node_modules/...)

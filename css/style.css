@@ -49,7 +49,7 @@ h3#header{
     font-family: Arial, Helvetica, sans-serif
 }
 
-button#refreshbtn {
+button#tryAgainbtn {
     display:none;
 }
 
@@ -90,43 +90,36 @@ input#my-file-selector {
     opacity:0.9;
 }
 
-/* Add a gray color to all navbar links */
 .navbar li a, .navbar .navbar-brand { 
     color: black !important;
 }
 
-/* On hover, the links will turn white */
 .navbar-nav li a:hover {
-    color: dimgrey !important;
+    color: darkgrey !important;
 }
 
 .navbar-nav li a:active{
     background-color: lightgrey !important;
 }
 
-/* The active link */
 .navbar-nav li.active a {
     color: black !important;
-    background-color: lightgrey !important;
+    background-color: darkgrey !important;
 }
 
-/* Remove border color from the collapsible button */
 .navbar-default .navbar-toggle {
     border-color: transparent;
 }
 
-/* Dropdown */
 .open .dropdown-toggle {
     color: #fff ;
     background-color: lightgrey !important;
 }
 
-/* Dropdown links */
 .dropdown-menu li a {
     color: #000 !important;
 }
 
-/* On hover, the dropdown links will turn red */
 .dropdown-menu li a:hover {
     background-color: lightgrey !important;
 }

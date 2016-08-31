@@ -2,8 +2,10 @@
 var pageheader = $("#page-header")[0];
 var pagecontainer = $("#page-container")[0];
 var imgSelector = $("#my-file-selector")[0];
-var refreshbtn = $("#refreshbtn")[0];
+var tryAgainbtn = $("#tryAgainbtn")[0];
 var randombtn = $("#randombtn")[0];
+var home = $("#home")[0];
+var appname = $("#app-name")[0];
 //Initialize quotes
 var Quote = (function () {
     function Quote(name, body) {
@@ -125,23 +127,22 @@ quotesList.push(sunny);
 quotesList.push(rain);
 quotesList.push(sky);
 quotesList.push(dark);
+var refreshQuote = [];
 // Register event listeners
 imgSelector.addEventListener("change", function () {
-    pageheader.innerHTML = "Please wait a moment..."; /**TODO: Add jquery loading plugin? */
+    pageheader.innerHTML = "Please wait a moment..."; /** ---TODO: Add jquery loading plugin? */
     processImage(function (file) {
-        //Get tags based on image (Pic analyzing API)
         sendTagRequest(file, function (tags) {
             var allTags = tags.tags;
-            //Get quotes based on tags
-            getQuote(allTags, function (quote) {
-                var quoteCategory = quote[Math.floor(Math.random() * quote.length)];
-                var displayQuote = quoteCategory[Math.floor(Math.random() * quoteCategory.length)];
-                pageheader.innerHTML = '"' + displayQuote.quote + ' ' + '" -' + displayQuote.author;
+            getQuoteArray(allTags, function (quote) {
+                refreshQuote = quote;
+                pageheader.innerHTML = getQuote(quote);
             });
-            changeUI();
+            changeUI(file);
         });
     });
 });
+//Check to see if file is valid
 function processImage(callback) {
     var file = imgSelector.files[0];
     var reader = new FileReader();
@@ -159,9 +160,14 @@ function processImage(callback) {
             //if file is valid photo it sends the file reference back up
             callback(file);
         }
+        home.style.backgroundImage = "url(" + reader.result + ")";
+        home.style.backgroundSize = "auto";
+        appname.style.display = "none";
+        pageheader.style.paddingTop = "200px";
     };
 }
-function getQuote(tags, callback) {
+//Get quote based on file uploaded
+function getQuoteArray(tags, callback) {
     var quotes = [];
     for (var _i = 0, tags_1 = tags; _i < tags_1.length; _i++) {
         var tag = tags_1[_i];
@@ -234,20 +240,33 @@ function getQuote(tags, callback) {
     }
     callback(quotes);
 }
-refreshbtn.addEventListener("click", function () {
-    //Load random quote based on tags
-    pageheader.innerHTML = ("Refresh -- get another quote"); //can demo with sweetAlert plugin
+//Get quote and author string 
+function getQuote(quoteArray) {
+    if (quoteArray.length == 0) {
+        var quoteCategory = quotesList[Math.floor(Math.random() * quoteArray.length)];
+        var displayQuote = quoteCategory[Math.floor(Math.random() * quoteCategory.length)];
+        return ('"' + displayQuote.quote + ' ' + '" -' + displayQuote.author);
+    }
+    else {
+        var quoteCategory = quoteArray[Math.floor(Math.random() * quoteArray.length)];
+        var displayQuote = quoteCategory[Math.floor(Math.random() * quoteCategory.length)];
+        return ('"' + displayQuote.quote + ' ' + '" -' + displayQuote.author);
+    }
+}
+//Return random quote based on tags
+tryAgainbtn.addEventListener("click", function () {
+    pageheader.innerHTML = getQuote(quotesList);
 });
+//Return random quote
 randombtn.addEventListener("click", function () {
-    var quoteCategory = quotesList[Math.floor(Math.random() * quotesList.length)];
-    var displayQuote = quoteCategory[Math.floor(Math.random() * quoteCategory.length)];
-    pageheader.innerHTML = '"' + displayQuote.quote + ' ' + '" -' + displayQuote.author;
+    pageheader.innerHTML = getQuote(refreshQuote);
 });
 // Manipulate the DOM
-function changeUI() {
-    //Display song refresh button
-    refreshbtn.style.display = "inline";
+function changeUI(file) {
+    pageheader.style.fontSize = "40px";
+    tryAgainbtn.style.display = "inline"; //Display try again button
 }
+//API call to get picture tags
 function sendTagRequest(file, callback) {
     $.ajax({
         url: "https://api.projectoxford.ai/vision/v1.0/describe",
