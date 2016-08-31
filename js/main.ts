@@ -198,10 +198,12 @@ function processImage(callback):void{
     }
     else{
         console.log("Invalid file");
+        $.LoadingOverlay("hide");
     }
     reader.onloadend = function(){
         if (!file.name.match(/\.(jpg|jpeg|png)$/)) {
             pageheader.innerHTML = "Please upload an image file (jpg or png).";
+            $.LoadingOverlay("hide");
         }
         else {
             //if file is valid image it sends the file reference back up
