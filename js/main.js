@@ -136,6 +136,7 @@ quotesList.push(dark);
 var refreshQuote = [];
 // Register event listeners
 imgSelector.addEventListener("change", function () {
+    window.location.hash = '#home';
     pageheader.innerHTML = "Please wait for a moment...";
     $.LoadingOverlay("show"); //Start jQuery loading plugin
     processImage(function (file) {
@@ -145,15 +146,18 @@ imgSelector.addEventListener("change", function () {
             console.log(allTags);
             getQuoteArray(allTags, function (quoteArray) {
                 refreshQuote = quoteArray; //To get array of quotes to return when user clicks Try Again
+                tryAgainbtn.style.display = "inline"; //Display try again button
                 changeUI(quoteArray);
             });
         });
     });
 });
 tryAgainbtn.addEventListener("click", function () {
+    window.location.hash = '#home';
     changeUI(refreshQuote);
 });
 randombtn.addEventListener("click", function () {
+    window.location.hash = '#home';
     changeUI(quotesList);
 });
 //Check to see if file is valid
@@ -278,7 +282,6 @@ function postQuote(quote) {
 function changeUI(quoteArray) {
     postQuote(quoteArray);
     pageheader.style.fontSize = "46px";
-    tryAgainbtn.style.display = "inline"; //Display try again button
 }
 //API call to get image tags
 function sendTagRequest(file, callback) {

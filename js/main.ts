@@ -166,6 +166,7 @@ var refreshQuote : Array<Array<Quote>> = [];
 
 // Register event listeners
 imgSelector.addEventListener("change", function () {//Return another quote based on image tags
+    window.location.hash = '#home';
     pageheader.innerHTML = "Please wait for a moment...";
     $.LoadingOverlay("show"); //Start jQuery loading plugin
     processImage(function(file){ 
@@ -175,6 +176,7 @@ imgSelector.addEventListener("change", function () {//Return another quote based
             console.log(allTags);
             getQuoteArray(allTags,function(quoteArray){
                 refreshQuote = quoteArray; //To get array of quotes to return when user clicks Try Again
+                tryAgainbtn.style.display = "inline"; //Display try again button
                 changeUI(quoteArray);
             });
         });
@@ -182,10 +184,12 @@ imgSelector.addEventListener("change", function () {//Return another quote based
 });
 
 tryAgainbtn.addEventListener("click", function () {//Return another quote based on tags
+    window.location.hash = '#home';
     changeUI(refreshQuote);
 });
 
 randombtn.addEventListener("click",function(){//Return random quote
+    window.location.hash = '#home';
     changeUI(quotesList);
 });
 
@@ -336,7 +340,6 @@ function postQuote(quote):void{
 function changeUI(quoteArray) {
     postQuote(quoteArray);
     pageheader.style.fontSize = "46px";
-    tryAgainbtn.style.display = "inline"; //Display try again button
 }
 
 //API call to get image tags
