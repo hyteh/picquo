@@ -18,7 +18,7 @@ body {
 
 h1#app-name {
     font-size:200px;
-    margin-top: 60px;
+    padding-top: 60px;
 }
 
 #page-header {
@@ -35,18 +35,23 @@ body .container {
 }
 
 h3#header{
-    padding-top:20px;
-    font-size:80px;
+    padding-top:30px;
+    font-size:100px;
 }
 
 #about{
     font-size:46px;
     background: rgba(255,255,255,0.5);
-    color: black;
+    color:black;
+}
+
+#about p{
+    line-height: 200%;
 }
 
 .btn-wrapper {
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 60px;
 }
 
 button#tryAgainbtn {
@@ -57,13 +62,13 @@ button#tryAgainbtn {
     background-color:transparent;
     padding-top:0px;
     position: absolute;
-    width:50%;
+    width:100%;
 }
 
 #edit{
     background-color:transparent;
     font-size:50px;
-    padding-top:200px;
+    padding-top:300px;
     text-align: center;
 }
 
@@ -115,8 +120,6 @@ input#my-file-selector {
 .dropdown-menu li a:hover {
     background-color: lightgrey !important;
 }
-
-
 
 /*Icons*/
 .social-share ul li {
