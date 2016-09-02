@@ -338,7 +338,7 @@ function postQuote(quote):void{
 // Manipulate the DOM
 function changeUI(quoteArray) {
     postQuote(quoteArray);
-    pageheader.style.fontSize = "46px";
+    pageheader.style.fontSize = "56px";
 }
 
 //API call to get image tags
