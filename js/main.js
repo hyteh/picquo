@@ -143,7 +143,6 @@ imgSelector.addEventListener("change", function () {
         sendTagRequest(file, function (tags) {
             $.LoadingOverlay("hide"); //Stop jQuery loading plugin
             var allTags = tags.tags;
-            console.log(allTags);
             getQuoteArray(allTags, function (quoteArray) {
                 refreshQuote = quoteArray; //To get array of quotes to return when user clicks Try Again
                 tryAgainbtn.style.display = "inline"; //Display try again button
