@@ -20,15 +20,23 @@ body {
     min-height: 1000px;
 }
 
+body .container {
+    background-color:rgba(55,55,55,0.5);
+    text-align: center;
+    height: 100%;
+    width:100%;
+    padding-top:100px;
+}
+
 h1#app-name {
-    font-size:200px;
-    padding-top: 40px;
+    font-size:180px;
+    padding-top: 50px;
 }
 
 #page-header {
-    padding-top: 50px;
-    font-size: 100px;
-    padding-bottom:26px;
+    font-size: 56px;
+    padding-top: 56px;
+    padding-bottom:56px;
 }
 
 body .container {
@@ -40,22 +48,20 @@ body .container {
 }
 #home{
     height:100%;
-    font-size:50px;
+}
+
+h3#header{
+    padding-top:50px;
+    font-size:100px;
+    padding-bottom: 50px;
 }
 
 #about{
     font-size:56px;
     background: rgba(255,255,255,0.5);
     color:black;
-    padding-top:120px;
-}
 
-h3#header{
-    padding-top:20px;
-    font-size:100px;
-    padding-bottom: 50px;
 }
-
 
 #about p{
     line-height: 200%;
@@ -81,7 +87,7 @@ button#tryAgainbtn {
 #edit{
     background-color:transparent;
     font-size:56px;
-    padding-top:360px;
+    padding-top:320px;
     text-align: center;
 }
 
